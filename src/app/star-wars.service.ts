@@ -21,6 +21,8 @@ export class StarWarsService {
   private next_link: string;
   private homeworlds = new Map();
   private species = new Map();
+  charactersLoaded = false;
+  moviesLoaded = false;
 
   constructor(logService: LogService, http: Http) {
     this.logService = logService;
@@ -109,6 +111,7 @@ export class StarWarsService {
         if (this.next_link) {
           this.fetchPage(this.next_link);
         }
+        this.charactersLoaded = true;
       }
     );
   }
@@ -137,9 +140,9 @@ export class StarWarsService {
       return movies;
     }).subscribe(
       (data) => {
-        // console.log(data);
         this.movies.push(...data);
         this.moviesChanged.next();
+        this.moviesLoaded = true;
       }
     );
   }

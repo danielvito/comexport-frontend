@@ -1,3 +1,6 @@
+<div class="alert alert-light" role="alert" *ngIf="!isLoaded()">
+  Loading ... Please wait!
+</div>
 <div class="row">
   <div class="col-sm-6" *ngFor="let movie of movies">
     <div class="card mb-3">

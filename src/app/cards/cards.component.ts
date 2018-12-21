@@ -31,6 +31,10 @@ export class CardsComponent implements OnInit, OnDestroy {
     );
   }
 
+  isLoaded() {
+    return this.swService.moviesLoaded;
+  }
+
   ngOnDestroy() {
     this.subscription.unsubscribe();
   }
