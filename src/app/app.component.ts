@@ -15,5 +15,6 @@ export class AppComponent implements OnInit {
 
   ngOnInit() {
     this.swService.fetchCharacters();
+    this.swService.fetchMovies();
   }
 }

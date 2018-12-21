@@ -3,12 +3,12 @@ import { ActivatedRoute } from '@angular/router';
 import { StarWarsService } from 'app/star-wars.service';
 
 @Component({
-  selector: 'app-list',
-  templateUrl: './list.component.html',
-  styleUrls: ['./list.component.css']
+  selector: 'app-cards',
+  templateUrl: './cards.component.html',
+  styleUrls: ['./cards.component.css']
 })
-export class ListComponent implements OnInit, OnDestroy {
-  characters = [];
+export class CardsComponent implements OnInit, OnDestroy {
+  movies = [];
   activatedRoute: ActivatedRoute;
   swService: StarWarsService;
   subscription;
@@ -21,12 +21,12 @@ export class ListComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.activatedRoute.params.subscribe(
       (params) => {
-        this.characters = this.swService.getCharacters();
+        this.movies = this.swService.getMovies();
       }
     );
-    this.subscription = this.swService.charactersChanged.subscribe(
+    this.subscription = this.swService.moviesChanged.subscribe(
       (params) => {
-        this.characters = this.swService.getCharacters();
+        this.movies = this.swService.getMovies();
       }
     );
   }

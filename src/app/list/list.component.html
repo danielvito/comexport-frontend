@@ -1,5 +1,24 @@
-<div class="list-group">
-  <app-item
-    *ngFor="let char of characters"
-    [character]="char"></app-item>
+<div class="table-responsive">
+  <table class="table table-striped table-hover">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Height</th>
+        <th>Gender</th>
+        <th>Birth Year</th>
+        <th>Home World</th>
+        <th>Species</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let char of characters">
+        <td>{{char.name}}</td>
+        <td>{{char.height}}</td>
+        <td>{{char.gender}}</td>
+        <td>{{char.birth_year}}</td>
+        <td>{{char.homeworld}}</td>
+        <td>{{char.species}}</td>
+      </tr>
+    </tbody>
+  </table>
 </div>
